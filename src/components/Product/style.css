@@ -1,0 +1,16 @@
+.product {
+
+}
+
+.product__pic {
+
+}
+
+.product__img {
+  width: 100%;
+}
+
+.product__title {
+  font-size: 26px;
+  font-weight: 500;
+}
