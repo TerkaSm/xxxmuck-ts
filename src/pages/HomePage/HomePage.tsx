@@ -6,15 +6,19 @@ import { Link } from 'react-router-dom';
 export const HomePage = () => {
   const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      const response = await fetch(
-        'https://apps.kodim.cz/react-2/xxxmuck/products',
-      );
-      const data = await response.json();
-      console.log(data);
-      setProducts(data);
-    };
+  interface Product {
+    id: string
+    name: string;
+    image: string;
+  }
+
+    useEffect(() => {
+      const fetchProducts = async (): Promise<void> => {
+        const response = await fetch('https://apps.kodim.cz/react-2/xxxmuck/products')
+        const data = await response.json() as Product[];
+        console.log(data);
+        setProducts(data);
+      }
 
     fetchProducts();
   }, []);
